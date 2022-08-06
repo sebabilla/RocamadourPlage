@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Son/argent.wav" type="AudioStream" id=1]
+[ext_resource path="res://ItemListDepot.gd" type="Script" id=2]
+[ext_resource path="res://AmoureuseAssise.gd" type="Script" id=3]
+[ext_resource path="res://Art/ocean.png" type="Texture" id=4]
+[ext_resource path="res://Son/frottement.wav" type="AudioStream" id=5]
+[ext_resource path="res://Ocean.gd" type="Script" id=6]
+[ext_resource path="res://Jeu.gd" type="Script" id=7]
+[ext_resource path="res://ListeTresors.tscn" type="PackedScene" id=8]
+[ext_resource path="res://AmoureuseAssise.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Nageur.tscn" type="PackedScene" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0 )
+
+[node name="Jeu" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="AireDeJeu" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AireDeJeu"]
+polygon = PoolVector2Array( 1456, -1137, 1814, -928, 1706, -827, 1921, -726, 1921, -121, 1067, 962, 320, 1534, -467, 1884, -1335, 1877, -2223, 1420, -2969, 1117, -3097, 902, -3111, -1177, -3211, -1170, -3171, 2005, 3072, 1944, 3078, -1137 )
+
+[node name="ListeTresors" parent="." instance=ExtResource( 8 )]
+
+[node name="ItemListDepot" type="ItemList" parent="."]
+margin_left = 1903.0
+margin_top = -1018.0
+margin_right = 2192.0
+margin_bottom = -776.0
+rect_rotation = 22.0
+custom_styles/bg = SubResource( 1 )
+max_columns = 4
+script = ExtResource( 2 )
+
+[node name="SonGardes" type="AudioStreamPlayer2D" parent="ItemListDepot"]
+position = Vector2( -1383.08, 1656.75 )
+rotation = -0.383972
+stream = ExtResource( 1 )
+volume_db = 6.0
+max_distance = 5000.0
+
+[node name="SonLaisse" type="AudioStreamPlayer2D" parent="ItemListDepot"]
+stream = ExtResource( 5 )
+max_distance = 5000.0
+
+[node name="Ocean" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+script = ExtResource( 6 )
+
+[node name="AmoureuseAssise" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1750, -880 )
+script = ExtResource( 3 )
+
+[node name="Nageur" parent="." instance=ExtResource( 10 )]
+
+[connection signal="envoyer_tresors" from="ListeTresors" to="ItemListDepot" method="_on_ListeTresors_envoyer_tresors"]
+[connection signal="body_entered" from="AmoureuseAssise" to="ListeTresors" method="_on_AmoureuseAssise_body_entered"]
+[connection signal="decision" from="AmoureuseAssise" to="." method="_on_AmoureuseAssise_decision"]
+[connection signal="fini" from="Nageur" to="ListeTresors" method="_on_Nageur_fini"]
+[connection signal="fini" from="Nageur" to="AmoureuseAssise" method="_on_Nageur_fini"]
+[connection signal="profondeur" from="Nageur" to="Ocean" method="_on_Nageur_profondeur"]

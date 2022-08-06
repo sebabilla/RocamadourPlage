@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/argent.wav-3b5c193328c9d14f1fc836e1a62f48ba.sample"
+
+[deps]
+
+source_file="res://Son/argent.wav"
+dest_files=[ "res://.import/argent.wav-3b5c193328c9d14f1fc836e1a62f48ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

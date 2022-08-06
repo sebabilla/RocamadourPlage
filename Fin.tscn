@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Art/ocean.png" type="Texture" id=1]
+[ext_resource path="res://Art/nage2.png" type="Texture" id=2]
+[ext_resource path="res://Fin.gd" type="Script" id=3]
+[ext_resource path="res://Art/nage1.png" type="Texture" id=4]
+[ext_resource path="res://Art/bleu_trasparent.png" type="Texture" id=5]
+[ext_resource path="res://Art/ov_vide.png" type="Texture" id=6]
+[ext_resource path="res://BulleFemme.gd" type="Script" id=7]
+[ext_resource path="res://Art/amoureuse_check.png" type="Texture" id=8]
+[ext_resource path="res://Art/nage3.png" type="Texture" id=9]
+[ext_resource path="res://Art/p_inter.png" type="Texture" id=10]
+[ext_resource path="res://NageurDebout.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Fin" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Ocean2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="AmoureuseFin" type="Sprite" parent="."]
+position = Vector2( 1750, -880 )
+texture = ExtResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="AmoureuseFin"]
+position = Vector2( -150, 30 )
+rotation = -0.600696
+offset = Vector2( 300, -300 )
+current = true
+zoom = Vector2( 2, 2 )
+
+[node name="NageurFin" type="AnimatedSprite" parent="."]
+position = Vector2( 1600, -850 )
+rotation = -0.600696
+frames = SubResource( 2 )
+playing = true
+flip_h = true
+
+[node name="CouvrirNageur" type="Sprite" parent="."]
+position = Vector2( 1590, -810 )
+scale = Vector2( 20, 20 )
+texture = ExtResource( 5 )
+
+[node name="BulleFemme" type="Sprite" parent="."]
+position = Vector2( 1817, -1099 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="DialogueFemme" type="Sprite" parent="BulleFemme"]
+position = Vector2( -4, -14 )
+texture = ExtResource( 10 )
+
+[node name="NageurDebout" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1776, -889 )
+rotation = 1.5708
+texture = ExtResource( 9 )
+flip_v = true
+script = ExtResource( 11 )

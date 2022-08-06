@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Art/exclamation.png" type="Texture" id=1]
+[ext_resource path="res://Exclamation.gd" type="Script" id=2]
+[ext_resource path="res://BulleDessin.gd" type="Script" id=3]
+[ext_resource path="res://Art/ov_vide.png" type="Texture" id=4]
+[ext_resource path="res://Tresor.gd" type="Script" id=5]
+[ext_resource path="res://ImgTresor.gd" type="Script" id=6]
+[ext_resource path="res://PrendreTresor.gd" type="Script" id=7]
+[ext_resource path="res://Son/bulle.wav" type="AudioStream" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 180.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 150.0
+
+[node name="Tresor" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Exclamation" type="Area2D" parent="."]
+
+[node name="CollisionLarge" type="CollisionShape2D" parent="Exclamation"]
+shape = SubResource( 1 )
+
+[node name="ExclamationPoint" type="Sprite" parent="Exclamation"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Bulle" type="Area2D" parent="."]
+
+[node name="CollisionPrecise" type="CollisionShape2D" parent="Bulle"]
+shape = SubResource( 2 )
+
+[node name="BulleDessin" type="Sprite" parent="Bulle"]
+position = Vector2( 0, -50 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="ImgTresor" type="Sprite" parent="Bulle/BulleDessin"]
+script = ExtResource( 6 )
+
+[node name="PrendreTresor" type="Area2D" parent="Bulle/BulleDessin"]
+script = ExtResource( 7 )
+
+[node name="CollisionPrendre" type="CollisionShape2D" parent="Bulle/BulleDessin/PrendreTresor"]
+shape = SubResource( 3 )
+
+[node name="SonBulle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+max_distance = 5000.0
+
+[connection signal="body_entered" from="Exclamation" to="Exclamation/ExclamationPoint" method="_on_Exclamation_body_entered"]
+[connection signal="body_entered" from="Exclamation" to="Bulle/BulleDessin/PrendreTresor" method="_on_Exclamation_body_entered"]
+[connection signal="body_entered" from="Bulle" to="Bulle/BulleDessin" method="_on_Bulle_body_entered"]
+[connection signal="body_entered" from="Bulle" to="Bulle/BulleDessin/PrendreTresor" method="_on_Bulle_body_entered"]
+[connection signal="body_exited" from="Bulle" to="Bulle/BulleDessin" method="_on_Bulle_body_exited"]
+[connection signal="body_exited" from="Bulle" to="Bulle/BulleDessin/PrendreTresor" method="_on_Bulle_body_exited"]
+[connection signal="body_entered" from="Bulle/BulleDessin/PrendreTresor" to="." method="_on_PrendreTresor_body_entered"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Art/credits.png" type="Texture" id=1]
+[ext_resource path="res://NageurCredit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/recommencer.png" type="Texture" id=3]
+[ext_resource path="res://Art/quitter.png" type="Texture" id=4]
+[ext_resource path="res://Credits.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42.5, 34.5 )
+
+[node name="Credits" type="Sprite"]
+position = Vector2( 1090, -1346 )
+texture = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 125, 319 )
+offset = Vector2( 100, -0.017 )
+current = true
+zoom = Vector2( 3, 3 )
+
+[node name="NageurCredit" parent="." instance=ExtResource( 2 )]
+position = Vector2( -303, 876 )
+
+[node name="Recommencer" type="Area2D" parent="."]
+position = Vector2( -308, 487 )
+
+[node name="Sprite" type="Sprite" parent="Recommencer"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Recommencer"]
+position = Vector2( 1.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="Quitter" type="Area2D" parent="."]
+position = Vector2( -308, 1043 )
+
+[node name="Sprite" type="Sprite" parent="Quitter"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quitter"]
+position = Vector2( 1.5, -0.5 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Recommencer" to="." method="_on_Recommencer_body_entered"]
+[connection signal="body_entered" from="Quitter" to="." method="_on_Quitter_body_entered"]

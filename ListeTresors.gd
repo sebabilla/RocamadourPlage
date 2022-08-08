@@ -5,7 +5,7 @@ signal envoyer_tresors(liste)
 var tresors = []
 
 
-func _on_AmoureuseAssise_body_entered(body):
+func _on_AmoureuseAssise_body_entered(_body):
 	if len(tresors) > 0:
 		emit_signal("envoyer_tresors", tresors)
 		tresors = []
@@ -44,9 +44,4 @@ func _on_DentOr_tresor_pris(nom):
 
 func _on_Medaillon_tresor_pris(nom):
 	tresors.append(nom)
-
-
-
-
-
 

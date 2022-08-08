@@ -6,7 +6,7 @@ var fins = ["vide", "vide", "vide", "vide", "vide"]
 
 func _ready():
 	$MIntro.play()
-	add_child(load("res://Introduction.tscn").instance())
+	add_child(preload("res://Introduction.tscn").instance())
 	$Introduction.connect("intro_finie", self, "_on_Introduction_intro_finie")
 	randomize()
 	
@@ -17,7 +17,7 @@ func _on_Introduction_intro_finie():
 	$MIntro.stop()
 	$MJeu.play()
 	fondu_off()
-	add_child(load("res://Jeu.tscn").instance())
+	add_child(preload("res://Jeu.tscn").instance())
 	
 	$Jeu.connect("jeu_fini", self, "_on_Jeu_jeu_fini")
 	
@@ -28,7 +28,7 @@ func _on_Fin_recommencer():
 	$MFin.stop()
 	$MJeu.play()
 	fondu_off()
-	add_child(load("res://Jeu.tscn").instance())
+	add_child(preload("res://Jeu.tscn").instance())
 	$Jeu.connect("jeu_fini", self, "_on_Jeu_jeu_fini")
 
 
@@ -51,7 +51,7 @@ func _on_Jeu_jeu_fini(amoureuse):
 	$MJeu.stop()
 	$MFin.play()
 	fondu_off()
-	add_child(load("res://Fin.tscn").instance())
+	add_child(preload("res://Fin.tscn").instance())
 	$Fin.amoureuse = amoureuse
 	$Fin.connect("fin_finie", self, "_on_Fin_fin_finie")
 	
@@ -61,7 +61,7 @@ func _on_Fin_fin_finie():
 	fondu_on()
 	$Fin.queue_free()
 	fondu_off()
-	add_child(load("res://Credits.tscn").instance())
+	add_child(preload("res://Credits.tscn").instance())
 	$Credits.connect("recommencer", self, "_on_Fin_recommencer")
 	$Credits.fins = fins
 

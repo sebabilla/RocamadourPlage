@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art/ocean.png" type="Texture" id=1]
 [ext_resource path="res://Art/nage2.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://BulleHomme.gd" type="Script" id=8]
 [ext_resource path="res://Introduction.gd" type="Script" id=9]
 [ext_resource path="res://Art/p_inter.png" type="Texture" id=10]
+[ext_resource path="res://Son/bulle.wav" type="AudioStream" id=11]
+[ext_resource path="res://Son/bulleh.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -33,7 +35,6 @@ texture = ExtResource( 3 )
 position = Vector2( 1600, -850 )
 rotation = -0.600696
 frames = SubResource( 2 )
-frame = 1
 playing = true
 flip_h = true
 
@@ -74,3 +75,11 @@ texture = ExtResource( 10 )
 [node name="DialogueFemme2" type="Sprite" parent="BulleFemme"]
 position = Vector2( 150, 0.000488281 )
 texture = ExtResource( 10 )
+
+[node name="SonBulleF" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+max_distance = 5000.0
+
+[node name="SonBulleH" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+max_distance = 5000.0

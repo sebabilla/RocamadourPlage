@@ -11,9 +11,16 @@ func _ready():
 	if amoureuse == "absent":
 		jouer_fin_absent()
 	elif amoureuse == "seule":
+		$Grognement.play()
 		jouer_fin_seule()
-	else:
+	elif amoureuse == "ensemble":
+		$Miaou.play()
 		jouer_fin_ensemble()
+	elif amoureuse == "amoureux":
+		$Miaou.play()
+		joueur_fin_amoureux()
+	else:
+		jouer_fin_mange()
 
 
 func jouer_fin_absent():
@@ -44,6 +51,19 @@ func jouer_fin_ensemble():
 	$NageurDebout.visible = true
 	
 	partir()
+	
+	
+func joueur_fin_amoureux():
+	$AmoureuseFin.texture = load("res://Art/am_debout.png")
+	jouer_fin_ensemble()
+	
+	
+func jouer_fin_mange():
+	$NageurFin.visible = false
+	$BulleFemme.modulate.a = 0.3
+	$BulleFemme/DialogueFemme.modulate.a = 0.7
+	$NageurDebout.modulate.a = 0.7
+	jouer_fin_ensemble()
 	
 
 func partir():	

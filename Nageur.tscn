@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art/nage1.png" type="Texture" id=1]
 [ext_resource path="res://Art/nage4.png" type="Texture" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://Art/nage2.png" type="Texture" id=4]
 [ext_resource path="res://Nageur.gd" type="Script" id=5]
 [ext_resource path="res://Decompte.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Bulles.gd" type="Script" id=7]
+[ext_resource path="res://Art/une_bulle.png" type="Texture" id=8]
+[ext_resource path="res://Son/une_bulle.wav" type="AudioStream" id=9]
+[ext_resource path="res://Art/deux_bulle.png" type="Texture" id=10]
+[ext_resource path="res://Son/deux_bulles.wav" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -20,6 +25,8 @@ radius = 16.9998
 height = 116.0
 
 [node name="Nageur" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -37,5 +44,26 @@ margin_bottom = 10.0
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 smoothing_speed = 2.0
+
+[node name="Bulles" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="SpriteUneBulle" type="Sprite" parent="Bulles"]
+visible = false
+position = Vector2( -46, -18 )
+texture = ExtResource( 8 )
+
+[node name="SpriteDeuxBulles" type="Sprite" parent="Bulles"]
+visible = false
+position = Vector2( -45, -20 )
+texture = ExtResource( 10 )
+
+[node name="SonUneBulle" type="AudioStreamPlayer2D" parent="Bulles"]
+stream = ExtResource( 9 )
+volume_db = -6.0
+
+[node name="SonDeuxBulles" type="AudioStreamPlayer2D" parent="Bulles"]
+stream = ExtResource( 11 )
+volume_db = -6.0
 
 [connection signal="fini" from="Decompte" to="." method="_on_Decompte_fini"]

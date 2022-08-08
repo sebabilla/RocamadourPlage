@@ -20,11 +20,14 @@ func _ready():
 
 func jouer_introduction():
 	for d in dialogue:
+		if d["femme"][0] != "blanc":
+			$SonBulleF.play()
 		$BulleHomme.visible = false
 		$BulleFemme.visible = true
 		$BulleFemme/DialogueFemme1.texture = load("res://Art/" + d["femme"][0] +".png")
 		$BulleFemme/DialogueFemme2.texture = load("res://Art/" + d["femme"][1] +".png")
 		yield(get_tree().create_timer(2),"timeout")
+		$SonBulleH.play()
 		$BulleFemme.visible = false
 		$BulleHomme.visible = true
 		$BulleHomme/DialogueHomme1.texture = load("res://Art/" + d["homme"][0] +".png")

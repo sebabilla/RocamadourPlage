@@ -1,6 +1,13 @@
 extends ItemList
 
+
+signal ensemble
+signal seule
+
+
 var tresors = []
+var total = 0
+
 
 var valeur = {"croix": 1,
 			"bouteille": -1,
@@ -13,6 +20,7 @@ var valeur = {"croix": 1,
 			"dentor": 1,
 			"medaillon": 3}
 
+
 func _ready():
 	fixed_icon_size = Vector2(60, 60)
 
@@ -23,23 +31,24 @@ func _on_ListeTresors_envoyer_tresors(liste):
 		tresors.append(tresor)
 	
 
-func fin_total_tresors():
-	var total = 0
-	for tresor in tresors:
-		total += valeur[tresor]
-	return total
+func _on_AmoureuseAssise_examen_des_tresors():
+	fin_total_tresors()
+	yield(get_tree().create_timer(4),"timeout")
+	if total > 2:
+		emit_signal("ensemble")
+	else:
+		emit_signal("seule")
 	
 
-func fin_garder_tresors():
-	clear()
-	var temp = []
+func fin_total_tresors():
+	var i = 0
 	for tresor in tresors:
-		yield(get_tree().create_timer(0.2),"timeout")
-		if valeur[tresor] > 0:
-			temp.append(tresor)
-			$SonGardes.play()
+		var val = valeur[tresor]
+		total += val
+		if val > 0:
+			set_item_custom_bg_color(i,Color(0,0.3*val,0,1))
 		else:
-			add_icon_item(load("res://Art/" + tresor + ".png"))
-			$SonLaisse.play()
-	return temp
-			
+			set_item_custom_bg_color(i,Color(-0.3*val,0,0,1))
+		yield(get_tree().create_timer(0.3),"timeout")
+		i += 1
+	

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Art/merou.png" type="Texture" id=1]
+[ext_resource path="res://Merou.gd" type="Script" id=2]
+[ext_resource path="res://Merous.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 800, 600 )
+
+[node name="Merous" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource( 3 )
+
+[node name="Merou" type="Sprite" parent="."]
+position = Vector2( 162, 196 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Merou2" type="Sprite" parent="."]
+position = Vector2( 667, 454 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 403, 282 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Merous_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Merous_body_exited"]

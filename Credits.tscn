@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Art/credits.png" type="Texture" id=1]
 [ext_resource path="res://NageurCredit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/recommencer.png" type="Texture" id=3]
 [ext_resource path="res://Art/quitter.png" type="Texture" id=4]
 [ext_resource path="res://Credits.gd" type="Script" id=5]
+[ext_resource path="res://Art/cercle.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 42.5, 34.5 )
@@ -21,10 +22,10 @@ current = true
 zoom = Vector2( 3, 3 )
 
 [node name="NageurCredit" parent="." instance=ExtResource( 2 )]
-position = Vector2( -303, 876 )
+position = Vector2( -150, 876 )
 
 [node name="Recommencer" type="Area2D" parent="."]
-position = Vector2( -308, 487 )
+position = Vector2( -150, 491 )
 
 [node name="Sprite" type="Sprite" parent="Recommencer"]
 texture = ExtResource( 3 )
@@ -34,7 +35,7 @@ position = Vector2( 1.5, -0.5 )
 shape = SubResource( 1 )
 
 [node name="Quitter" type="Area2D" parent="."]
-position = Vector2( -308, 1043 )
+position = Vector2( -150, 1020 )
 
 [node name="Sprite" type="Sprite" parent="Quitter"]
 texture = ExtResource( 4 )
@@ -42,6 +43,27 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Quitter"]
 position = Vector2( 1.5, -0.5 )
 shape = SubResource( 1 )
+
+[node name="Badges" type="Node2D" parent="."]
+
+[node name="Cercle" type="Sprite" parent="Badges"]
+position = Vector2( -689, 705 )
+texture = ExtResource( 7 )
+
+[node name="Badge0" type="Sprite" parent="Badges"]
+position = Vector2( -756, 528 )
+
+[node name="Badge1" type="Sprite" parent="Badges"]
+position = Vector2( -767, 886 )
+
+[node name="Badge2" type="Sprite" parent="Badges"]
+position = Vector2( -536, 839 )
+
+[node name="Badge3" type="Sprite" parent="Badges"]
+position = Vector2( -884, 706 )
+
+[node name="Badge4" type="Sprite" parent="Badges"]
+position = Vector2( -528, 588 )
 
 [connection signal="body_entered" from="Recommencer" to="." method="_on_Recommencer_body_entered"]
 [connection signal="body_entered" from="Quitter" to="." method="_on_Quitter_body_entered"]

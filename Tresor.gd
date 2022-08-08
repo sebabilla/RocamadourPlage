@@ -10,7 +10,7 @@ func _ready():
 
 
 func _on_PrendreTresor_body_entered(body):
-	$SonBulle.play()
+	$SonRamasse.play()
 	emit_signal("tresor_pris", nom_tresor)
 	remove_child($Exclamation)
 	remove_child($Bulle)

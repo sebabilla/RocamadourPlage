@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c1pnfr30xuwjd"]
+
+[ext_resource type="Texture2D" uid="uid://b60khi1nsomy4" path="res://Art/requin.png" id="1"]
+[ext_resource type="Script" uid="uid://bw6hbqec2qohu" path="res://Scenes/Requin.gd" id="2"]
+[ext_resource type="Script" uid="uid://2mp1vrum7lld" path="res://Scenes/Requins.gd" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(2400, 600)
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 29.0
+height = 150.0
+
+[node name="Requins" type="Area2D" unique_id=705651052]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1408075544]
+position = Vector2(451, 311)
+shape = SubResource("1")
+
+[node name="Requin" type="Sprite2D" parent="." unique_id=1522122411]
+position = Vector2(385, 296)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Miam" type="Area2D" parent="Requin" unique_id=983020031]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Requin/Miam" unique_id=660392929]
+rotation = 1.5708
+shape = SubResource("2")
+
+[connection signal="body_entered" from="." to="." method="_on_Requins_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Requins_body_exited"]
+[connection signal="body_entered" from="Requin/Miam" to="." method="_on_Miam_body_entered"]

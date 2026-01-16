@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c85oigxspxbyk"]
+
+[ext_resource type="PackedScene" uid="uid://bf36h4obgl3tj" path="res://Scenes/Tresor.tscn" id="2"]
+
+[node name="ListeTresors" type="Node2D" unique_id=180870395]
+
+[node name="Croix" parent="." unique_id=601061970 instance=ExtResource("2")]
+position = Vector2(1722, -521)
+nom_tresor = "croix"
+
+[node name="Bouteille" parent="." unique_id=2141178445 instance=ExtResource("2")]
+position = Vector2(1652, -110)
+nom_tresor = "bouteille"
+
+[node name="TShirt" parent="." unique_id=959270042 instance=ExtResource("2")]
+position = Vector2(1471, 31)
+nom_tresor = "tshirt"
+
+[node name="Ordi" parent="." unique_id=81177218 instance=ExtResource("2")]
+position = Vector2(1131, 489)
+nom_tresor = "ordi"
+
+[node name="Cafetiere" parent="." unique_id=766578105 instance=ExtResource("2")]
+position = Vector2(699, 1047)
+nom_tresor = "cafetiere"
+
+[node name="Revue" parent="." unique_id=10033867 instance=ExtResource("2")]
+position = Vector2(-359, 874)
+nom_tresor = "revue"
+
+[node name="Parfum" parent="." unique_id=879460939 instance=ExtResource("2")]
+position = Vector2(-699, 1501)
+nom_tresor = "parfum"
+
+[node name="Sapin" parent="." unique_id=2469999 instance=ExtResource("2")]
+position = Vector2(-1441, 1300)
+nom_tresor = "sapin"
+
+[node name="DentOr" parent="." unique_id=178009212 instance=ExtResource("2")]
+position = Vector2(-1793, 1360)
+nom_tresor = "dentor"
+
+[node name="Medaillon" parent="." unique_id=307335698 instance=ExtResource("2")]
+position = Vector2(-2093, 1070)
+nom_tresor = "medaillon"

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bwtcteibnmw4p"]
+
+[ext_resource type="Texture2D" uid="uid://ceqqfrfjt85na" path="res://Art/nage1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cg7vt4h12g6qp" path="res://Art/nage4.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ceyy4iog85k5l" path="res://Art/nage3.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b8wymgncerqsg" path="res://Art/nage2.png" id="4"]
+[ext_resource type="Script" uid="uid://bo3toen6q2i6r" path="res://Scenes/NageurCredit.gd" id="5"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 16.9998
+height = 116.0
+
+[node name="NageurCredit" type="CharacterBody2D" unique_id=1376237182]
+script = ExtResource("5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1678099973]
+sprite_frames = SubResource("1")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=981921632]
+rotation = 1.5708
+shape = SubResource("2")

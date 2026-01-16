@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b5n7q6371nbv4"]
+
+[ext_resource type="Texture2D" uid="uid://dq2gph48uuclk" path="res://Art/credits.png" id="1"]
+[ext_resource type="PackedScene" uid="uid://bwtcteibnmw4p" path="res://Scenes/NageurCredit.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://ddbenybsflu48" path="res://Art/recommencer.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bnl0h7gbpw41i" path="res://Art/quitter.png" id="4"]
+[ext_resource type="Script" uid="uid://cwn1c3oglb7sl" path="res://Scenes/Credits.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://dfq0x4adnfjm7" path="res://Art/cercle.png" id="7"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(85, 69)
+
+[node name="Credits" type="Sprite2D" unique_id=820247089]
+texture = ExtResource("1")
+script = ExtResource("5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1424982469]
+position = Vector2(125, 319)
+offset = Vector2(100, -0.017)
+zoom = Vector2(0.3, 0.3)
+
+[node name="NageurCredit" parent="." unique_id=1996754339 instance=ExtResource("2")]
+position = Vector2(-150, 876)
+
+[node name="Recommencer" type="Area2D" parent="." unique_id=205143389]
+position = Vector2(-150, 491)
+
+[node name="Sprite2D" type="Sprite2D" parent="Recommencer" unique_id=328104303]
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Recommencer" unique_id=1344444150]
+position = Vector2(1.5, -0.5)
+shape = SubResource("1")
+
+[node name="Quitter" type="Area2D" parent="." unique_id=1085360652]
+position = Vector2(-150, 1020)
+
+[node name="Sprite2D" type="Sprite2D" parent="Quitter" unique_id=1558603049]
+texture = ExtResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quitter" unique_id=2049922763]
+position = Vector2(1.5, -0.5)
+shape = SubResource("1")
+
+[node name="Badges" type="Node2D" parent="." unique_id=1153435607]
+
+[node name="Cercle" type="Sprite2D" parent="Badges" unique_id=568425199]
+position = Vector2(-689, 705)
+texture = ExtResource("7")
+
+[node name="Badge0" type="Sprite2D" parent="Badges" unique_id=1956805931]
+position = Vector2(-756, 528)
+
+[node name="Badge1" type="Sprite2D" parent="Badges" unique_id=1038853562]
+position = Vector2(-767, 886)
+
+[node name="Badge2" type="Sprite2D" parent="Badges" unique_id=448948366]
+position = Vector2(-536, 839)
+
+[node name="Badge3" type="Sprite2D" parent="Badges" unique_id=312395394]
+position = Vector2(-884, 706)
+
+[node name="Badge4" type="Sprite2D" parent="Badges" unique_id=1432998807]
+position = Vector2(-528, 588)
+
+[connection signal="body_entered" from="Recommencer" to="." method="_on_Recommencer_body_entered"]
+[connection signal="body_entered" from="Quitter" to="." method="_on_Quitter_body_entered"]

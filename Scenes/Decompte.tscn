@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ch1txt5qaq3qg"]
+
+[ext_resource type="Script" uid="uid://c00imwxkdt3lv" path="res://Scenes/Decompte.gd" id="1"]
+[ext_resource type="Script" uid="uid://2bqgojlmv5im" path="res://Scenes/Fleche.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://b3x5irrg3is43" path="res://Art/f_orange.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://cu7d7rbmr2y16" path="res://Son/cloche.wav" id="4"]
+
+[sub_resource type="CanvasItemMaterial" id="1"]
+
+[sub_resource type="Theme" id="2"]
+
+[node name="Decompte" type="Control" unique_id=1033199705]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="ProgressBarDecompte" type="ProgressBar" parent="." unique_id=635987616]
+unique_name_in_owner = true
+material = SubResource("1")
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 10.0
+rotation = -1.5707964
+theme = SubResource("2")
+max_value = 60.0
+step = 1.0
+show_percentage = false
+
+[node name="TimerDecompte" type="Timer" parent="." unique_id=207803758]
+unique_name_in_owner = true
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="TimerRentrer" type="Timer" parent="." unique_id=764230940]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[node name="TimerRentrer2" type="Timer" parent="." unique_id=406735774]
+wait_time = 50.0
+one_shot = true
+autostart = true
+
+[node name="Fleche" type="Sprite2D" parent="." unique_id=1603025941]
+position = Vector2(5, 26)
+texture = ExtResource("3")
+script = ExtResource("2")
+
+[node name="Sonnette" type="AudioStreamPlayer" parent="." unique_id=1484105795]
+stream = ExtResource("4")
+
+[connection signal="timeout" from="TimerDecompte" to="." method="_on_TimerDecompte_timeout"]
+[connection signal="timeout" from="TimerRentrer" to="Fleche" method="_on_TimerRentrer_timeout"]
+[connection signal="timeout" from="TimerRentrer2" to="Fleche" method="_on_TimerRentrer2_timeout"]

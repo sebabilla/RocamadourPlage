@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bnfkca440fved"]
+
+[ext_resource type="Texture2D" uid="uid://bst42s0u350en" path="res://Art/ocean.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://b8wymgncerqsg" path="res://Art/nage2.png" id="2"]
+[ext_resource type="Script" uid="uid://cxmv2to6rmdyj" path="res://Scenes/Fin.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://ceqqfrfjt85na" path="res://Art/nage1.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://di67rkycn44fm" path="res://Art/bleu_trasparent.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bgfg81nthy3cd" path="res://Art/ov_vide.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cjncx0fiy27ia" path="res://Art/amoureuse_check.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://ceyy4iog85k5l" path="res://Art/nage3.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://c00o3m84u2irq" path="res://Art/p_inter.png" id="10"]
+[ext_resource type="AudioStream" uid="uid://clrnp5fskthtp" path="res://Son/grognement.wav" id="12"]
+[ext_resource type="AudioStream" uid="uid://bcnj1p5r3l72e" path="res://Son/miaou.wav" id="13"]
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Fin" type="Node2D" unique_id=1734003313]
+script = ExtResource("3")
+
+[node name="Ocean2" type="Sprite2D" parent="." unique_id=537227750]
+texture = ExtResource("1")
+
+[node name="AmoureuseFin" type="Sprite2D" parent="." unique_id=665177902]
+position = Vector2(1750, -880)
+texture = ExtResource("8")
+
+[node name="Camera2D" type="Camera2D" parent="AmoureuseFin" unique_id=786924799]
+position = Vector2(-150, 60)
+rotation = -0.600696
+scale = Vector2(0.5, 0.5)
+offset = Vector2(300, -300)
+
+[node name="NageurFin" type="AnimatedSprite2D" parent="." unique_id=2041678493]
+position = Vector2(1600, -850)
+rotation = -0.600696
+sprite_frames = SubResource("2")
+flip_h = true
+
+[node name="CouvrirNageur" type="Sprite2D" parent="." unique_id=2117206219]
+position = Vector2(1590, -810)
+scale = Vector2(20, 20)
+texture = ExtResource("5")
+
+[node name="BulleFemme" type="Sprite2D" parent="." unique_id=705291653]
+position = Vector2(1817, -1099)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6")
+
+[node name="DialogueFemme" type="Sprite2D" parent="BulleFemme" unique_id=1098491980]
+position = Vector2(-4, -14)
+texture = ExtResource("10")
+
+[node name="NageurDebout" type="Sprite2D" parent="." unique_id=1443159706]
+visible = false
+position = Vector2(1776, -889)
+rotation = 1.5708
+texture = ExtResource("9")
+flip_v = true
+
+[node name="Grognement" type="AudioStreamPlayer" parent="." unique_id=1056079049]
+stream = ExtResource("12")
+
+[node name="Miaou" type="AudioStreamPlayer" parent="." unique_id=708361061]
+stream = ExtResource("13")

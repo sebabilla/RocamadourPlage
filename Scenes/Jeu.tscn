@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cqaia0o7b3sw8"]
+
+[ext_resource type="Script" uid="uid://cma2kloe3bp3j" path="res://Scenes/ItemListDepot.gd" id="2"]
+[ext_resource type="Script" uid="uid://criir7ycwjs6x" path="res://Scenes/AmoureuseAssise.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://bst42s0u350en" path="res://Art/ocean.png" id="4"]
+[ext_resource type="Script" uid="uid://bihtx7mqyea00" path="res://Scenes/Ocean.gd" id="6"]
+[ext_resource type="Script" uid="uid://jgyfq18riypg" path="res://Scenes/Jeu.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://c85oigxspxbyk" path="res://Scenes/ListeTresors.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://ctb1ajq2kp73c" path="res://Scenes/AmoureuseAssise.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://b24u73ai45ghs" path="res://Scenes/Nageur.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://b2dv2mdsan4lp" path="res://Scenes/Merous.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://2f6rbvehki15" path="res://Scenes/Sardines.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://Scenes/PChirurgiens.tscn" id="13"]
+[ext_resource type="PackedScene" path="res://Scenes/Requins.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://1wdfexp0tc70" path="res://Scenes/Amoureux.tscn" id="15"]
+
+[node name="Jeu" type="Node2D" unique_id=1944905466]
+script = ExtResource("7")
+
+[node name="AireDeJeu" type="StaticBody2D" parent="." unique_id=1807921510]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AireDeJeu" unique_id=357594806]
+polygon = PackedVector2Array(1456, -1137, 1814, -928, 1706, -827, 1921, -726, 1921, -121, 1067, 962, 320, 1534, -467, 1884, -1335, 1877, -2223, 1420, -2969, 1117, -3097, 902, -3111, -1177, -3211, -1170, -3171, 2005, 3072, 1944, 3078, -1137)
+
+[node name="ListeTresors" parent="." unique_id=1924406560 instance=ExtResource("8")]
+
+[node name="Poissons" type="Node2D" parent="." unique_id=867932190]
+
+[node name="Merous" parent="Poissons" unique_id=498509942 instance=ExtResource("11")]
+position = Vector2(632, -192)
+
+[node name="Merous2" parent="Poissons" unique_id=253605013 instance=ExtResource("11")]
+position = Vector2(-808, 960)
+
+[node name="Merous3" parent="Poissons" unique_id=132587550 instance=ExtResource("11")]
+position = Vector2(-2728, 577)
+
+[node name="Sardines" parent="Poissons" unique_id=916722308 instance=ExtResource("12")]
+position = Vector2(-1889, 624)
+rotation = 0.0220299
+
+[node name="Sardines2" parent="Poissons" unique_id=2130557991 instance=ExtResource("12")]
+position = Vector2(-504, 320)
+
+[node name="Sardines3" parent="Poissons" unique_id=938057364 instance=ExtResource("12")]
+position = Vector2(464, -752)
+
+[node name="PChirurgiens" parent="Poissons" unique_id=828249730 instance=ExtResource("13")]
+position = Vector2(-87, 1380)
+rotation = -1.1323
+
+[node name="PChirurgiens2" parent="Poissons" unique_id=172961113 instance=ExtResource("13")]
+position = Vector2(-3074, 420)
+rotation = 0.336459
+
+[node name="Requins" parent="Poissons" unique_id=905773997 instance=ExtResource("14")]
+position = Vector2(-1774, -947)
+
+[node name="Ocean" type="Sprite2D" parent="." unique_id=1331060822]
+visible = false
+texture = ExtResource("4")
+script = ExtResource("6")
+
+[node name="ItemListDepot" type="ItemList" parent="." unique_id=1357041779]
+visible = false
+offset_left = 2064.0
+offset_top = -823.00006
+offset_right = 2353.0
+offset_bottom = -581.00006
+rotation = 22.400553
+theme_override_colors/guide_color = Color(0, 0, 0, 1)
+max_columns = 4
+script = ExtResource("2")
+
+[node name="AmoureuseAssise" parent="." unique_id=1673693000 instance=ExtResource("9")]
+position = Vector2(1750, -880)
+script = ExtResource("3")
+
+[node name="Amoureux" parent="." unique_id=323671753 instance=ExtResource("15")]
+position = Vector2(-2907, -1089)
+
+[node name="Nageur" parent="." unique_id=1869711871 instance=ExtResource("10")]
+unique_name_in_owner = true
+collision_mask = 1
+
+[connection signal="mange" from="Poissons/Requins" to="." method="_on_Requins_mange"]
+[connection signal="ensemble" from="ItemListDepot" to="." method="_on_ItemListDepot_ensemble"]
+[connection signal="seule" from="ItemListDepot" to="." method="_on_ItemListDepot_seule"]
+[connection signal="absent" from="AmoureuseAssise" to="." method="_on_AmoureuseAssise_absent"]
+[connection signal="body_entered" from="AmoureuseAssise" to="ListeTresors" method="_on_AmoureuseAssise_body_entered"]
+[connection signal="examen_des_tresors" from="AmoureuseAssise" to="ItemListDepot" method="_on_AmoureuseAssise_examen_des_tresors"]
+[connection signal="amoureux_accepte" from="Amoureux" to="." method="_on_Amoureux_amoureux_accepte"]
+[connection signal="fini" from="Nageur" to="ListeTresors" method="_on_Nageur_fini"]
+[connection signal="fini" from="Nageur" to="AmoureuseAssise" method="_on_Nageur_fini"]

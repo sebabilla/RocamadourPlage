@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://2f6rbvehki15"]
+
+[ext_resource type="Texture2D" uid="uid://cdfn1bh2hoi3x" path="res://Art/sardine.png" id="1"]
+[ext_resource type="Script" uid="uid://dssnbsoinlaa3" path="res://Scenes/Sardine.gd" id="2"]
+[ext_resource type="Script" uid="uid://c45oifh2k2p0e" path="res://Scenes/Sardines.gd" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(1600, 600)
+
+[node name="Sardines" type="Area2D" unique_id=49371746]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=843271049]
+position = Vector2(456, 259)
+shape = SubResource("1")
+
+[node name="Sardine" type="Sprite2D" parent="." unique_id=1628809772]
+position = Vector2(162, 196)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine2" type="Sprite2D" parent="." unique_id=626530088]
+position = Vector2(620, 197)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine3" type="Sprite2D" parent="." unique_id=1197722537]
+position = Vector2(527, 273)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine4" type="Sprite2D" parent="." unique_id=1300647181]
+position = Vector2(432, 203)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine5" type="Sprite2D" parent="." unique_id=1470903815]
+position = Vector2(251, 310)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine6" type="Sprite2D" parent="." unique_id=1095681480]
+position = Vector2(332, 214)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine7" type="Sprite2D" parent="." unique_id=619088660]
+position = Vector2(418, 327)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine8" type="Sprite2D" parent="." unique_id=962977335]
+position = Vector2(531, 206)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine9" type="Sprite2D" parent="." unique_id=2069232703]
+position = Vector2(461, 269)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine10" type="Sprite2D" parent="." unique_id=133432249]
+position = Vector2(487, 163)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine11" type="Sprite2D" parent="." unique_id=1802316547]
+position = Vector2(486, 228)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine12" type="Sprite2D" parent="." unique_id=1039783341]
+position = Vector2(525, 342)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine13" type="Sprite2D" parent="." unique_id=1262988396]
+position = Vector2(370, 285)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine14" type="Sprite2D" parent="." unique_id=1655660885]
+position = Vector2(603, 268)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine15" type="Sprite2D" parent="." unique_id=22411894]
+position = Vector2(368, 153)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine16" type="Sprite2D" parent="." unique_id=943367236]
+position = Vector2(571, 174)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Sardine17" type="Sprite2D" parent="." unique_id=1254514770]
+position = Vector2(611, 335)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[connection signal="body_entered" from="." to="." method="_on_Sardines_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Sardines_body_exited"]

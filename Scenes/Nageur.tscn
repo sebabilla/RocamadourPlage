@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b24u73ai45ghs"]
+
+[ext_resource type="Texture2D" uid="uid://ceqqfrfjt85na" path="res://Art/nage1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cg7vt4h12g6qp" path="res://Art/nage4.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ceyy4iog85k5l" path="res://Art/nage3.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b8wymgncerqsg" path="res://Art/nage2.png" id="4"]
+[ext_resource type="Script" uid="uid://br66cv21ifxgy" path="res://Scenes/Nageur.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://ch1txt5qaq3qg" path="res://Scenes/Decompte.tscn" id="6"]
+[ext_resource type="Script" uid="uid://dlilaeebr5xeh" path="res://Scenes/Bulles.gd" id="7"]
+[ext_resource type="Texture2D" uid="uid://dhy2iyhlg3n3v" path="res://Art/une_bulle.png" id="8"]
+[ext_resource type="AudioStream" uid="uid://wu384yu6le74" path="res://Son/une_bulle.wav" id="9"]
+[ext_resource type="Texture2D" uid="uid://gvv66koqnvxw" path="res://Art/deux_bulle.png" id="10"]
+[ext_resource type="AudioStream" uid="uid://b36u2ti0xi5vj" path="res://Son/deux_bulles.wav" id="11"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="2"]
+radius = 16.9998
+height = 116.0
+
+[node name="Nageur" type="CharacterBody2D" unique_id=1222517716]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20851648]
+sprite_frames = SubResource("1")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=869607148]
+rotation = 1.5708
+shape = SubResource("2")
+
+[node name="Decompte" parent="." unique_id=938341579 instance=ExtResource("6")]
+offset_left = 362.0
+offset_right = 562.0
+offset_bottom = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1943860820]
+position_smoothing_speed = 2.0
+
+[node name="Bulles" type="Node2D" parent="." unique_id=1049841046]
+script = ExtResource("7")
+
+[node name="SpriteUneBulle" type="Sprite2D" parent="Bulles" unique_id=1288182014]
+visible = false
+position = Vector2(-46, -18)
+texture = ExtResource("8")
+
+[node name="SpriteDeuxBulles" type="Sprite2D" parent="Bulles" unique_id=2025867147]
+visible = false
+position = Vector2(-45, -20)
+texture = ExtResource("10")
+
+[node name="SonUneBulle" type="AudioStreamPlayer2D" parent="Bulles" unique_id=262520571]
+stream = ExtResource("9")
+volume_db = -6.0
+
+[node name="SonDeuxBulles" type="AudioStreamPlayer2D" parent="Bulles" unique_id=2101387164]
+stream = ExtResource("11")
+volume_db = -6.0
+
+[connection signal="fini" from="Decompte" to="." method="_on_Decompte_fini"]

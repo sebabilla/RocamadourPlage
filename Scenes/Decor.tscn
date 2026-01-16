@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d08dx5egggcaw"]
+
+[ext_resource type="Texture2D" uid="uid://nwvy542hpytx" path="res://Art/image_de_fond.png" id="1"]
+[ext_resource type="Script" uid="uid://d332gxxm2wdt6" path="res://Scenes/Decor.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://b52wypy7gfp72" path="res://Son/fin.ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://v3fs5jtociv2" path="res://Son/jeu.ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://biyofhjh0tbjg" path="res://Son/intro.ogg" id="5"]
+[ext_resource type="AudioStream" uid="uid://dvk6ytjt05bpb" path="res://Son/mange.wav" id="6"]
+[ext_resource type="Texture2D" uid="uid://0ku54ljr5f2y" path="res://Art/noir.png" id="7"]
+
+[node name="Decor" type="Sprite2D" unique_id=1100360253]
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="EnCours" type="Node" parent="." unique_id=898127545]
+
+[node name="MIntro" type="AudioStreamPlayer" parent="." unique_id=318984479]
+stream = ExtResource("5")
+volume_db = -6.0
+
+[node name="MJeu" type="AudioStreamPlayer" parent="." unique_id=189194119]
+stream = ExtResource("4")
+volume_db = -6.0
+
+[node name="MFin" type="AudioStreamPlayer" parent="." unique_id=436433493]
+stream = ExtResource("3")
+volume_db = -6.0
+
+[node name="MMange" type="AudioStreamPlayer" parent="." unique_id=1472161015]
+stream = ExtResource("6")
+
+[node name="Fondu" type="Sprite2D" parent="." unique_id=1086325115]
+visible = false
+z_index = 1
+z_as_relative = false
+scale = Vector2(1300, 900)
+texture = ExtResource("7")

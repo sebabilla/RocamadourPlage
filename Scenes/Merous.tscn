@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b2dv2mdsan4lp"]
+
+[ext_resource type="Texture2D" uid="uid://b2xiryuub5je6" path="res://Art/merou.png" id="1"]
+[ext_resource type="Script" uid="uid://b1mrhocbotnou" path="res://Scenes/Merou.gd" id="2"]
+[ext_resource type="Script" uid="uid://bc1jmm3ra1nv6" path="res://Scenes/Merous.gd" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(1600, 1200)
+
+[node name="Merous" type="Area2D" unique_id=6195041]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("3")
+
+[node name="Merou" type="Sprite2D" parent="." unique_id=1704438590]
+position = Vector2(162, 196)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Merou2" type="Sprite2D" parent="." unique_id=145729502]
+position = Vector2(667, 454)
+texture = ExtResource("1")
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=448608554]
+position = Vector2(403, 282)
+shape = SubResource("1")
+
+[connection signal="body_entered" from="." to="." method="_on_Merous_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Merous_body_exited"]

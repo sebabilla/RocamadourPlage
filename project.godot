@@ -13,6 +13,7 @@ config_version=5
 config/name="Rocamadour_Plage"
 run/main_scene="res://Scenes/Decor.tscn"
 config/features=PackedStringArray("4.6")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="uid://bar132as8tys6"
 config/icon="res://icon.png"
 
@@ -24,7 +25,7 @@ General="*uid://cjmey8np403ii"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [global]
 
@@ -60,6 +61,10 @@ ui_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[input_devices]
+
+pointing/emulate_mouse_from_touch=false
 
 [layer_names]
 

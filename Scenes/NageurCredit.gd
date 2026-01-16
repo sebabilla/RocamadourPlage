@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 400
-@export var archimede: float = -20
+@export var archimede: float = -30
 
 
 func _physics_process(_delta):

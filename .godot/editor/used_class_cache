@@ -1,6 +1,6 @@
 res://export_presets.cfg::1768575171::3f0e6fa06b76afbb4dcb286454571e9c::::
 res://icon.png::1768572893::89b2185acb7287f991f1a61732225e27::CompressedTexture2D::
-res://README.md::1659980658::771d9d634b05d5b246e4784ad712ea04::::
+res://README.md::1768577303::bbf430e2fa5147a02588a83b5a6f233c::::
 res://Art/am2.png::1768572893::cf65440fef3f6dcf58e4ac1038a25bd9::CompressedTexture2D::
 res://Art/am3.png::1768572893::4565d1619f9b4676b33619c7d46b1f1b::CompressedTexture2D::
 res://Art/amoureuse_assise.png::1768572893::a0fe84974c051e33376731e5094be55a::CompressedTexture2D::
@@ -49,6 +49,7 @@ res://Art/quitter.png::1768572893::d57b30931d1860394748502f411de787::CompressedT
 res://Art/recommencer.png::1768572893::122c8f6feac8bfe5f066491a2d133769::CompressedTexture2D::
 res://Art/requin.png::1768572893::a909a52e3760422439684342b0847b55::CompressedTexture2D::
 res://Art/revue.png::1768572893::3a8e3ce5d3ee33bdcae07ce7ff40625e::CompressedTexture2D::
+res://Art/rond_blanc128_128.png::1768587518::e7b12e53fa712e27deeafd40dd941cce::CompressedTexture2D::
 res://Art/rose.png::1768572893::453cc0ff7c04c95108e17306a1f3033c::CompressedTexture2D::
 res://Art/sang.png::1768572893::ade20ee1aa2af851b30856b78b87dde3::CompressedTexture2D::
 res://Art/sapin.png::1768572893::574b424b65415170d988aea14e5b7cd0::CompressedTexture2D::
@@ -83,8 +84,8 @@ res://Scenes/ListeTresors.tscn::1768572898::66b0b9cc4d3ac5f14853746fca61a6f9::Pa
 res://Scenes/Merou.gd::1768569597::9cd72cdb681a8ec39bcfcc23e480f231::Sprite2D,Node,Node2D::
 res://Scenes/Merous.gd::1768509384::1eb8ca23204dc481b2be6a483ac20b32::Area2D,Node,CanvasItem::
 res://Scenes/Merous.tscn::1768572899::2e5ccc1f5b292de0831839811b7634ce::PackedScene,RectangleShape2D,Area2D,Sprite2D,CollisionShape2D::
-res://Scenes/Nageur.gd::1768570409::50134b838014533dc71ccc792015028c::CharacterBody2D,Node,CanvasItem,Node2D,Input,AnimatedSprite2D::
-res://Scenes/Nageur.tscn::1768572899::9c111819a10ffb27533e0dcfccbaa77a::PackedScene,SpriteFrames,CapsuleShape2D,CharacterBody2D,AnimatedSprite2D,CollisionShape2D,Camera2D,Node2D,Sprite2D,AudioStreamPlayer2D::
+res://Scenes/Nageur.gd::1768590799::9300321f606fe83ce5482a31170c1bbc::CharacterBody2D,Node,CanvasItem,Node2D,AnimatedSprite2D,OS::
+res://Scenes/Nageur.tscn::1768590858::52c8f22fb19f59ea43d3a08821018a40::PackedScene,SpriteFrames,CapsuleShape2D,CharacterBody2D,AnimatedSprite2D,CollisionShape2D,Camera2D,Node2D,Sprite2D,AudioStreamPlayer2D,Node::
 res://Scenes/NageurCredit.gd::1768570640::32718d69f94a96e0872bd17acd125a98::CharacterBody2D,Node,Input,Node2D::
 res://Scenes/NageurCredit.tscn::1768572899::d617ca31e7773bf42d6afd374c076dcf::PackedScene,SpriteFrames,CapsuleShape2D,CharacterBody2D,AnimatedSprite2D,CollisionShape2D::
 res://Scenes/Ocean.gd::1768510569::321ffabd4af61bb82eab1eacf6b7cb8f::Sprite2D,Node,CanvasItem::
@@ -95,6 +96,10 @@ res://Scenes/PrendreTresor.gd::1768505128::7a20a6a75913f11a1bc7dfde60ca8f53::Are
 res://Scenes/Requin.gd::1768571268::4135f8dceddd1f21a3dd262dc9993921::Sprite2D,Node,Node2D::
 res://Scenes/Requins.gd::1768509574::e6739c9bc89d8719491cecb087f68fdc::Area2D,Node,CanvasItem::
 res://Scenes/Requins.tscn::1768572899::cc022ad776bd933551a5584e60ca644c::PackedScene,RectangleShape2D,CapsuleShape2D,Area2D,CollisionShape2D,Sprite2D::
+res://Scenes/input_smartphone.tscn::1768590996::c5655f4aa293719438ca9fc3a1b9ea52::PackedScene,CanvasLayer,Node2D,Sprite2D::
+res://Scenes/input_smartphone.gd::1768589756::a3c3997bf078fa42f59e2fe79cb8bd71::CanvasLayer,Node,InputEvent,InputEventScreenDrag,InputEventScreenTouch::
+res://Scenes/input_pc.gd::1768590736::d4a678951f8b04cca43bfcd1ae660225::Node,Input::
+res://Scenes/stick_virtuel.gd::1768589741::609655771c44e6719c86ad70bd89db1c::Node2D::
 res://Scenes/Sardine.gd::1768570976::8b04440dc826af92da4fc27cb43b215a::Sprite2D,Node,Node2D::
 res://Scenes/Sardines.gd::1768509400::f63c468ec4be1c22ff971d946369fb6b::Area2D,Node,CanvasItem::
 res://Scenes/Sardines.tscn::1768572899::f4465c31842571aff329656143f39dc2::PackedScene,RectangleShape2D,Area2D,CollisionShape2D,Sprite2D::

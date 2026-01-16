@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://wu384yu6le74" path="res://Son/une_bulle.wav" id="9"]
 [ext_resource type="Texture2D" uid="uid://gvv66koqnvxw" path="res://Art/deux_bulle.png" id="10"]
 [ext_resource type="AudioStream" uid="uid://b36u2ti0xi5vj" path="res://Son/deux_bulles.wav" id="11"]
+[ext_resource type="PackedScene" uid="uid://cbp8tavuvrk4f" path="res://Scenes/input_smartphone.tscn" id="12_f663s"]
+[ext_resource type="Script" uid="uid://i603vjkhloya" path="res://Scenes/input_pc.gd" id="13_psaqj"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -77,5 +79,12 @@ volume_db = -6.0
 [node name="SonDeuxBulles" type="AudioStreamPlayer2D" parent="Bulles" unique_id=2101387164]
 stream = ExtResource("11")
 volume_db = -6.0
+
+[node name="InputSmartphone" parent="." unique_id=962317001 instance=ExtResource("12_f663s")]
+unique_name_in_owner = true
+
+[node name="InputPC" type="Node" parent="." unique_id=1648667540]
+unique_name_in_owner = true
+script = ExtResource("13_psaqj")
 
 [connection signal="fini" from="Decompte" to="." method="_on_Decompte_fini"]

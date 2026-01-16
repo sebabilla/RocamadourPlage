@@ -1,4 +1,6 @@
+Node
+Sprite2D
+Node2D
+CanvasLayer
 AudioStreamPlayer
 CollisionPolygon2D
-Node
-Node2D

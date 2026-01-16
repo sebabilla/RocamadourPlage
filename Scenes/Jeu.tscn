@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b24u73ai45ghs" path="res://Scenes/Nageur.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://b2dv2mdsan4lp" path="res://Scenes/Merous.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://2f6rbvehki15" path="res://Scenes/Sardines.tscn" id="12"]
-[ext_resource type="PackedScene" path="res://Scenes/PChirurgiens.tscn" id="13"]
-[ext_resource type="PackedScene" path="res://Scenes/Requins.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://cluoe4pf5vm04" path="res://Scenes/PChirurgiens.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://c1pnfr30xuwjd" path="res://Scenes/Requins.tscn" id="14"]
 [ext_resource type="PackedScene" uid="uid://1wdfexp0tc70" path="res://Scenes/Amoureux.tscn" id="15"]
 
 [node name="Jeu" type="Node2D" unique_id=1944905466]
@@ -64,11 +64,11 @@ script = ExtResource("6")
 
 [node name="ItemListDepot" type="ItemList" parent="." unique_id=1357041779]
 visible = false
-offset_left = 2064.0
-offset_top = -823.00006
-offset_right = 2353.0
-offset_bottom = -581.00006
-rotation = 22.400553
+offset_left = 1890.0
+offset_top = -1045.0001
+offset_right = 2179.0
+offset_bottom = -803.0001
+rotation = 19.39456
 theme_override_colors/guide_color = Color(0, 0, 0, 1)
 max_columns = 4
 script = ExtResource("2")
